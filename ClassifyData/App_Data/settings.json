@@ -1,0 +1,139 @@
+{
+  "AnalyticsKey": {
+    "Id": "121d94b3-e1fe-41f2-b6af-2e3657a11724"
+  },
+  "ClientSecurityData": {
+    "Id": "a87d4fff-dfca-4c23-9f2f-00c6ad98c115",
+    "Data": {
+      "Vidyano": {
+        "isEnabled": true,
+        "label": null,
+        "description": null,
+        "registerUserId": null,
+        "registerPersistentObjectId": null
+      },
+      "autoCreateUsersInGroup": null,
+      "defaultUser": "Admin",
+      "Acs": {
+        "isEnabled": false,
+        "namespace": "",
+        "label": null,
+        "description": null,
+        "symmetricKey": "",
+        "signOutUri": ""
+      },
+      "AzureAD": {
+        "isEnabled": false,
+        "label": null,
+        "description": null,
+        "ssoServiceUrl": "",
+        "certificate": "",
+        "signOutUri": ""
+      },
+      "Microsoft": {
+        "isEnabled": false,
+        "clientID": "",
+        "clientSecret": ""
+      },
+      "Google": {
+        "isEnabled": false,
+        "clientID": "",
+        "clientSecret": ""
+      },
+      "Facebook": {
+        "isEnabled": false,
+        "clientID": "",
+        "clientSecret": ""
+      },
+      "Twitter": {
+        "isEnabled": false,
+        "clientID": "",
+        "clientSecret": ""
+      },
+      "Yammer": {
+        "isEnabled": false,
+        "clientID": "",
+        "clientSecret": ""
+      }
+    }
+  },
+  "Default Language": {
+    "Id": "a0ef6c49-c08d-417a-8b2d-8a515029a20c",
+    "Value": "en"
+  },
+  "Default PageSize": {
+    "Id": "2ab7f9f3-9a0b-44e6-9bd5-fd0519e625a5",
+    "Value": ""
+  },
+  "Default QueryComputeTotalItems": {
+    "Id": "f2b4d906-4c40-4ad9-b9a3-c40ee7ebee75",
+    "Value": "True"
+  },
+  "Default QueryLayoutMode": {
+    "Id": "aa1de64d-2a80-47f6-9351-d7dd2856d2cd",
+    "Value": "MasterDetail"
+  },
+  "Default Text FilterOperation": {
+    "Id": "24edfdf1-106c-4f48-882b-7960be285e72",
+    "Value": "Contains"
+  },
+  "Default TimeZone": {
+    "Id": "8d080d7d-b94c-442c-a54c-7528f4753dc1",
+    "Value": ""
+  },
+  "DeploymentReportsOverrides": {
+    "Id": "cc7d53f5-5cdf-4287-a71b-ad784d24d07e",
+    "Data": {}
+  },
+  "Docx2pdfApiKey (2sky)": {
+    "Id": "b0f8f391-ab85-4409-afc5-7ce51da98775",
+    "Value": ""
+  },
+  "FeedbackNotificationEmailFrom": {
+    "Id": "0482815f-ce40-4cf1-8682-b201bccd8f0b"
+  },
+  "FeedbackNotificationEmailTo": {
+    "Id": "3b03a61a-b2f5-4a59-a1fb-639fbc731516"
+  },
+  "Log Retention": {
+    "Id": "827ea51c-643e-4a76-856a-618776f72019",
+    "Value": "0"
+  },
+  "MicrosoftTranslatorAppId": {
+    "Id": "a24d3622-9e03-4763-bfdc-ee0562788f47"
+  },
+  "Password Complexity": {
+    "Id": "b3eb1978-0634-4402-92d0-4cd416c173c2",
+    "Value": "None"
+  },
+  "Password Minimum Length": {
+    "Id": "98170ea4-df29-4fb2-bf07-4719b8e78730",
+    "Value": "8"
+  },
+  "PerformanceToken": {
+    "Id": "a32c5725-a13c-4a7f-9694-94ace0d7cd4f",
+    "Value": ""
+  },
+  "SmtpConfiguration": {
+    "Id": "356ed984-dd81-44e2-ab64-afc79c287a6e"
+  },
+  "SynchronizeBlacklist": {
+    "Id": "68a6bc9f-276b-4d9e-b7f4-e298649cca65",
+    "Value": ""
+  },
+  "SynchronizeSchema": {
+    "Id": "0ba1ec79-ec3b-4217-95cf-7642799bdba1",
+    "Value": "IfEmpty"
+  },
+  "UseDirtyReads": {
+    "Id": "5d7f02cb-3f52-4382-b540-65fa81e42517",
+    "Value": "False"
+  },
+  "Web Accent Color": {
+    "Id": "a635694b-9ae0-48ad-8639-0e94d55dc505",
+    "Value": "#0c5d7d"
+  },
+  "Web2Version": {
+    "Id": "8959a9ce-9018-405e-85b0-5098b7baaba2"
+  }
+}

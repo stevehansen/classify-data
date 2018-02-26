@@ -1,0 +1,8 @@
+* text eol=crlf
+*.cs text eol=crlf diff=csharp
+*.gz binary
+*.exe binary
+*.dll binary
+*.pkg binary
+*.png binary
+*.gif binary

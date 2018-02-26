@@ -1,0 +1,10 @@
+{
+  "Websites": {
+    "Default": {
+      "Type": 2,
+      "Bindings": [
+        "*"
+      ]
+    }
+  }
+}

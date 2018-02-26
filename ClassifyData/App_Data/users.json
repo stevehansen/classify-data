@@ -1,0 +1,41 @@
+[
+  {
+    "Id": "d83ef774-35b2-4812-a493-75442519d2d5",
+    "Name": "Admin",
+    "PasswordHash": "$2a$13$Q7k4k/KQam11IEp45TRLTu/0j.DWOwBnoLNhD2WiomBHqrDUsjDW.",
+    "MemberOf": [
+      "Administrators"
+    ],
+    "CreationDate": "2018-02-26T21:25:42.1682877+01:00",
+    "SettingsObject": {
+      "QueryGridSettings": {},
+      "QuerySettings": {
+        "10024689-1b72-4302-ac46-d846957a0094": {
+          "sortOptions": "Schema ASC; Table ASC; Column ASC"
+        }
+      }
+    },
+    "ProfileObject": {},
+    "HasPassword": true
+  },
+  {
+    "$type": "Vidyano.Service.Repository.Group, Vidyano.Service",
+    "Id": "fe9429ba-d5cd-4e7c-bbe4-05a4c3497d97",
+    "IsSystem": true,
+    "Name": "Administrators",
+    "MemberOf": [
+      "Users"
+    ],
+    "CreationDate": "2018-02-26T21:25:42.1682877+01:00",
+    "HasPassword": false
+  },
+  {
+    "$type": "Vidyano.Service.Repository.Group, Vidyano.Service",
+    "Id": "d3bd3312-0730-43d9-9bf4-9e14c75b00f7",
+    "IsSystem": true,
+    "Name": "Users",
+    "MemberOf": [],
+    "CreationDate": "2018-02-26T21:25:42.1682877+01:00",
+    "HasPassword": false
+  }
+]

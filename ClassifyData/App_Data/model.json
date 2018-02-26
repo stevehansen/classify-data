@@ -1,0 +1,776 @@
+{
+  "Actions": {
+    "AddReference": {
+      "RefreshQueryOnCompleted": true,
+      "Offset": 300,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Add"
+      },
+      "IconName": "Add"
+    },
+    "BulkEdit": {
+      "Offset": 400,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "SelectionRule": ">0",
+      "DisplayName": {
+        "en": "Edit"
+      },
+      "IconName": "Edit"
+    },
+    "CancelEdit": {
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Cancel"
+      },
+      "IconName": "CancelEdit"
+    },
+    "CancelSave": {
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Cancel"
+      },
+      "IconName": "Cancel"
+    },
+    "Delete": {
+      "RefreshQueryOnCompleted": true,
+      "Offset": 500,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "SelectionRule": ">0",
+      "DisplayName": {
+        "en": "Delete"
+      },
+      "IconName": "Delete",
+      "ConfirmationMessageKey": "AskForDeleteItems"
+    },
+    "DialogCancel": {
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Cancel"
+      },
+      "IconName": "Cancel"
+    },
+    "DialogOk": {
+      "IsSystem": true,
+      "SelectionRule": "> 0",
+      "DisplayName": {
+        "en": "OK"
+      },
+      "IconName": "Ok"
+    },
+    "Edit": {
+      "Offset": 100,
+      "ShowedOn": 5,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Edit"
+      },
+      "IconName": "Edit"
+    },
+    "EndEdit": {
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Save"
+      },
+      "IconName": "Save"
+    },
+    "ExportToCsv": {
+      "Offset": 30001,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Export"
+      },
+      "IconName": "Excel"
+    },
+    "ExportToExcel": {
+      "Offset": 30000,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Export"
+      },
+      "IconName": "Excel"
+    },
+    "New": {
+      "Offset": 200,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "New"
+      },
+      "IconName": "Add"
+    },
+    "Remove": {
+      "RefreshQueryOnCompleted": true,
+      "Offset": 600,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "SelectionRule": ">0",
+      "DisplayName": {
+        "en": "Remove"
+      },
+      "IconName": "Remove"
+    },
+    "Save": {
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Save"
+      },
+      "IconName": "Save"
+    },
+    "ShowHelp": {
+      "Offset": 60000,
+      "ShowedOn": 7,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Help"
+      },
+      "IsPinned": true,
+      "IconName": "Help"
+    },
+    "viSearch": {
+      "Offset": 1500,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Search"
+      },
+      "IsPinned": true,
+      "IconName": "Filter"
+    }
+  },
+  "DataTypes": {
+    "AsDetail": {
+      "$id": "DataType:AsDetail",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": false,
+      "CanListDistincts": false
+    },
+    "BinaryFile": {
+      "$id": "DataType:BinaryFile",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": false,
+      "CanListDistincts": false
+    },
+    "Boolean": {
+      "$id": "DataType:Boolean",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Byte": {
+      "$id": "DataType:Byte",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "ComboBox": {
+      "$id": "DataType:ComboBox",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "CommonMark": {
+      "$id": "DataType:CommonMark",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Date": {
+      "$id": "DataType:Date",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "DateTime": {
+      "$id": "DataType:DateTime",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "DateTimeOffset": {
+      "$id": "DataType:DateTimeOffset",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Decimal": {
+      "$id": "DataType:Decimal",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Double": {
+      "$id": "DataType:Double",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "DropDown": {
+      "$id": "DataType:DropDown",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Enum": {
+      "$id": "DataType:Enum",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "FlagsEnum": {
+      "$id": "DataType:FlagsEnum",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Geography": {
+      "$id": "DataType:Geography",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": true,
+      "CanListDistincts": false
+    },
+    "Guid": {
+      "$id": "DataType:Guid",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": false,
+      "CanListDistincts": false
+    },
+    "Image": {
+      "$id": "DataType:Image",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": false,
+      "CanListDistincts": false
+    },
+    "Int16": {
+      "$id": "DataType:Int16",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Int32": {
+      "$id": "DataType:Int32",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Int64": {
+      "$id": "DataType:Int64",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "KeyValueList": {
+      "$id": "DataType:KeyValueList",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "MultiLineString": {
+      "$id": "DataType:MultiLineString",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "MultiString": {
+      "$id": "DataType:MultiString",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableBoolean": {
+      "$id": "DataType:NullableBoolean",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableByte": {
+      "$id": "DataType:NullableByte",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableDate": {
+      "$id": "DataType:NullableDate",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableDateTime": {
+      "$id": "DataType:NullableDateTime",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableDateTimeOffset": {
+      "$id": "DataType:NullableDateTimeOffset",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableDecimal": {
+      "$id": "DataType:NullableDecimal",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableDouble": {
+      "$id": "DataType:NullableDouble",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableGuid": {
+      "$id": "DataType:NullableGuid",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": false,
+      "CanListDistincts": false
+    },
+    "NullableInt16": {
+      "$id": "DataType:NullableInt16",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableInt32": {
+      "$id": "DataType:NullableInt32",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableInt64": {
+      "$id": "DataType:NullableInt64",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableSByte": {
+      "$id": "DataType:NullableSByte",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableSingle": {
+      "$id": "DataType:NullableSingle",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableTime": {
+      "$id": "DataType:NullableTime",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableUInt16": {
+      "$id": "DataType:NullableUInt16",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableUInt32": {
+      "$id": "DataType:NullableUInt32",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableUInt64": {
+      "$id": "DataType:NullableUInt64",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "NullableUser": {
+      "$id": "DataType:NullableUser",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Password": {
+      "$id": "DataType:Password",
+      "IsSystem": true,
+      "CanSort": false,
+      "CanFilter": false,
+      "CanListDistincts": false
+    },
+    "Reference": {
+      "$id": "DataType:Reference",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "SByte": {
+      "$id": "DataType:SByte",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Single": {
+      "$id": "DataType:Single",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "String": {
+      "$id": "DataType:String",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "Time": {
+      "$id": "DataType:Time",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "TranslatedString": {
+      "$id": "DataType:TranslatedString",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "UInt16": {
+      "$id": "DataType:UInt16",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "UInt32": {
+      "$id": "DataType:UInt32",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "UInt64": {
+      "$id": "DataType:UInt64",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "User": {
+      "$id": "DataType:User",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    },
+    "YesNo": {
+      "$id": "DataType:YesNo",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
+    }
+  },
+  "Rules": {},
+  "Schemas": {
+    "ClassifyData": {
+      "PersistentObjects": {
+        "33fdb20b-481b-3a38-a2b8-df58be2e496b": {
+          "$id": "PersistentObject:33fdb20b-481b-3a38-a2b8-df58be2e496b",
+          "SchemaName": "ClassifyData",
+          "Type": "ColumnInfo",
+          "Salt": "0vse9hRfq3PxLIG8fpwZybxdhlQXHf1UEukX60TjyJk",
+          "Breadcrumb": "{Table}: {Column}",
+          "SortOptions": "Schema; Table; Column",
+          "Label": {
+            "en": "Column"
+          },
+          "StateBehavior": 8,
+          "Groups": [
+            {
+              "$id": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09",
+              "Id": "692449d9-df78-4517-b1e1-f9a35e18ce09"
+            }
+          ],
+          "Tabs": [
+            {
+              "$id": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545",
+              "Id": "2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+            }
+          ],
+          "Attributes": [
+            {
+              "$id": "PersistentObjectAttribute:e7a6f70a-3077-3433-96e4-b10c8fb2fea9",
+              "Id": "e7a6f70a-3077-3433-96e4-b10c8fb2fea9",
+              "Offset": 30,
+              "Name": "Column",
+              "IsReadOnly": true,
+              "Label": {
+                "en": "Column"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:9bed0f9a-ee81-3688-88ca-06f005a99ed2",
+              "Id": "9bed0f9a-ee81-3688-88ca-06f005a99ed2",
+              "Offset": 40,
+              "Name": "InformationTypeId",
+              "Label": {
+                "en": "Information type"
+              },
+              "Visibility": 5,
+              "ColumnSpan": 1,
+              "DefaultOptions": "8A462631-4130-0A31-9A52-C6A9CA125F92=Banking\n5C503E21-22C6-81FA-620B-F369B8EC38D1=Contact Info\nC64ABA7B-3A3E-95B6-535D-3BC535DA5A59=Credentials\nD22FA6E9-5EE4-3BDE-4C2B-A409604C4646=Credit Card\n3DE7CC52-710D-4E96-7E20-4D5188D2590C=Date Of Birth\nC44193E1-0E58-4B2A-9001-F7D6E7BC1373=Financial\n6E2C5B18-97CF-3073-27AB-F12F87493DA7=Health\n57845286-7598-22F5-9659-15B24AEB125E=Name\n6F5A11A7-08B1-19C3-59E5-8C89CF4F8444=National ID\nB40AD280-0F6A-6CA8-11BA-2F1A08651FCF=Networking\n9C5B4809-0CCC-0637-6547-91A6F8BB609D=Other\nD936EC2C-04A4-9CF7-44C2-378A96456C61=SSN\n=[N/A]",
+              "DataType": {
+                "$ref": "DataType:KeyValueList"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:db291c74-b045-35a4-ad1b-4ec15e6a4ed2",
+              "Id": "db291c74-b045-35a4-ad1b-4ec15e6a4ed2",
+              "Offset": 50,
+              "Name": "InformationTypeName",
+              "Label": {
+                "en": "Information type"
+              },
+              "Visibility": 2,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:8c2203df-ebcf-3e07-b392-fe5f3d65ed90",
+              "Id": "8c2203df-ebcf-3e07-b392-fe5f3d65ed90",
+              "Offset": 10,
+              "Name": "Schema",
+              "IsReadOnly": true,
+              "Label": {
+                "en": "Schema"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:e0736714-a9d0-3ee0-9091-0922d58dfa70",
+              "Id": "e0736714-a9d0-3ee0-9091-0922d58dfa70",
+              "Offset": 60,
+              "Name": "SensitivityLabelId",
+              "Label": {
+                "en": "Sensitivity label"
+              },
+              "Visibility": 5,
+              "ColumnSpan": 1,
+              "DefaultOptions": "1866ca45-1973-4c28-9d12-04d407f147ad=Public\n684a0db2-d514-49d8-8c0c-df84a7b083eb=General\n331F0B13-76B5-2F1B-A77B-DEF5A73C73C2=Confidential\n989ADC05-3F3F-0588-A635-F475B994915B=Confidential - GDPR\n3302ae7f-b8ac-46bc-97f8-378828781efd=Highly Confidential - GDPR\n=[N/A]",
+              "DataType": {
+                "$ref": "DataType:KeyValueList"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:d42e7722-fa6a-3946-b071-cf0b729e0a8b",
+              "Id": "d42e7722-fa6a-3946-b071-cf0b729e0a8b",
+              "Offset": 70,
+              "Name": "SensitivityLabelName",
+              "Label": {
+                "en": "Sensitivity label"
+              },
+              "Visibility": 2,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:2d4b4b68-7863-3d9d-ae55-1e9980d95bbf",
+              "Id": "2d4b4b68-7863-3d9d-ae55-1e9980d95bbf",
+              "Offset": 20,
+              "Name": "Table",
+              "IsReadOnly": true,
+              "Label": {
+                "en": "Table"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            }
+          ],
+          "Queries": []
+        },
+        "3107ea55-830d-39e2-a36a-3e4ff02ed695": {
+          "$id": "PersistentObject:3107ea55-830d-39e2-a36a-3e4ff02ed695",
+          "SchemaName": "ClassifyData",
+          "Type": "Database",
+          "Salt": "ntfEWTX97KxKDCOt7RTo7qHqSI_u92jJqgPt04zz00E",
+          "Breadcrumb": "{Name}",
+          "IsHidden": true,
+          "Label": {
+            "en": "Database"
+          },
+          "Groups": [
+            {
+              "$id": "PersistentObjectAttributeGroup:fbba5609-3db6-4f55-8ec7-10f4615a3e2a",
+              "Id": "fbba5609-3db6-4f55-8ec7-10f4615a3e2a"
+            }
+          ],
+          "Tabs": [
+            {
+              "$id": "PersistentObjectAttributeTab:d9c3c856-feba-43a1-960c-36708d5699a7",
+              "Id": "d9c3c856-feba-43a1-960c-36708d5699a7"
+            }
+          ],
+          "Attributes": [
+            {
+              "$id": "PersistentObjectAttribute:6b371f26-18d1-3ff3-a962-848538d528e2",
+              "Id": "6b371f26-18d1-3ff3-a962-848538d528e2",
+              "Offset": 10,
+              "Name": "Name",
+              "Label": {
+                "en": "Name"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:fbba5609-3db6-4f55-8ec7-10f4615a3e2a"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:d9c3c856-feba-43a1-960c-36708d5699a7"
+              }
+            }
+          ],
+          "Queries": [
+            "10024689-1b72-4302-ac46-d846957a0094"
+          ]
+        }
+      },
+      "Queries": {
+        "10024689-1b72-4302-ac46-d846957a0094": {
+          "$id": "Query:10024689-1b72-4302-ac46-d846957a0094",
+          "Source": "Custom.ForDatabase",
+          "AutoQuery": true,
+          "PageSize": 0,
+          "Name": "Columns",
+          "Label": {
+            "en": "Columns"
+          },
+          "PersistentObject": {
+            "$ref": "PersistentObject:33fdb20b-481b-3a38-a2b8-df58be2e496b"
+          },
+          "Columns": []
+        }
+      }
+    }
+  },
+  "ProgramUnits": [
+    {
+      "Name": "Server",
+      "Title": {
+        "en": "Server"
+      },
+      "OpenFirst": true,
+      "Groups": [],
+      "Items": []
+    }
+  ],
+  "Reports": [],
+  "ServiceVersion": "5.33.1+12ad63a",
+  "SeederHash": "EgNWQU7iWVeOIa+C1m7VNmz/TrHGVpAqeRlfF0Gm1no="
+}
