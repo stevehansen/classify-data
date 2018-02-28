@@ -871,7 +871,17 @@
       },
       "OpenFirst": true,
       "Groups": [],
-      "Items": []
+      "Items": [
+        {
+          "Title": {
+            "en": "Columns"
+          },
+          "Name": "Placeholder",
+          "Query": {
+            "$ref": "Query:10024689-1b72-4302-ac46-d846957a0094"
+          }
+        }
+      ]
     }
   ],
   "Reports": [],

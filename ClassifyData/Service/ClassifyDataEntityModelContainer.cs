@@ -13,9 +13,7 @@ namespace ClassifyData.Service
         {
             System.Data.Entity.Database.SetInitializer<ClassifyDataEntityModelContainer>(null);
 
-            var cfg = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-            var connectionStrings = (ConnectionStringsSection)cfg.GetSection("connectionStrings");
-            ConnectionString = connectionStrings.ConnectionStrings["ClassifyDataEntityModelContainer"].ConnectionString;
+            ConnectionString = ConfigurationManager.ConnectionStrings["ClassifyDataEntityModelContainer"].ConnectionString;
         }
 
         public ClassifyDataEntityModelContainer()

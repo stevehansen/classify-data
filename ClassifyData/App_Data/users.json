@@ -35,6 +35,17 @@
     "HasPassword": false
   },
   {
+    "Id": "c932338a-f0a9-47c1-93e4-8f36d306b9e1",
+    "Name": "User",
+    "MemberOf": [
+      "Users"
+    ],
+    "CreationDate": "2018-02-28T22:17:23.0394631+01:00",
+    "SettingsObject": {},
+    "ProfileObject": {},
+    "HasPassword": false
+  },
+  {
     "$type": "Vidyano.Service.Repository.Group, Vidyano.Service",
     "Id": "d3bd3312-0730-43d9-9bf4-9e14c75b00f7",
     "IsSystem": true,

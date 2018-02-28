@@ -13,7 +13,7 @@
         "registerPersistentObjectId": null
       },
       "autoCreateUsersInGroup": null,
-      "defaultUser": "Admin",
+      "defaultUser": "User",
       "Acs": {
         "isEnabled": false,
         "namespace": "",

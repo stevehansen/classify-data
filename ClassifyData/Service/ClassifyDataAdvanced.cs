@@ -16,6 +16,8 @@ namespace ClassifyData.Service
             var server = programUnits.FirstOrDefault(pu => pu.Name == "Server");
             if (server != null)
             {
+                server.Items.Clear();
+
                 var databasePo = Manager.Current.GetPersistentObject("Database");
 
                 try

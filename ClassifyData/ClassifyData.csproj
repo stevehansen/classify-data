@@ -95,7 +95,9 @@
     <Compile Include="Service\Database.cs" />
     <Compile Include="Service\DatabaseActions.cs" />
     <Compile Include="Service\PersistentObjectActionsReference.cs" />
-    <Content Include="App_Data\Websites\Default\index.html" />
+    <Content Include="App_Data\Websites\Default\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -106,12 +108,24 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="App_Data\culture.json" />
-    <Content Include="App_Data\model.json" />
-    <Content Include="App_Data\security.json" />
-    <Content Include="App_Data\websites.json" />
-    <Content Include="App_Data\settings.json" />
-    <Content Include="App_Data\users.json" />
+    <Content Include="App_Data\culture.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\model.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\security.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\websites.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\users.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.vidyano">
       <SubType>Designer</SubType>

@@ -11,18 +11,6 @@
             display: none;
         }
     </style>
-    <script>
-        var pu;
-        function toggleManagement() {
-            var menu = document.querySelector("vi-menu");
-            if (pu) {
-                menu.push("programUnits", pu);
-                pu = null;
-            }
-            else
-                pu = menu.splice("programUnits", 2)[0];
-        }
-    </script>
 </head>
 <body class="fullbleed">
     <vi-app label="Classify Data" class="fit">

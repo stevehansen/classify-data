@@ -10,7 +10,6 @@ namespace ClassifyData.App
                 model.AddSeparator();
 
             model.AddItem((CefMenuCommand)26501, "Show DevTools");
-            model.AddItem((CefMenuCommand)26502, "Toggle Management");
         }
 
         public bool OnContextMenuCommand(IWebBrowser browserControl, IBrowser browser, IFrame frame, IContextMenuParams parameters, CefMenuCommand commandId, CefEventFlags eventFlags)
@@ -18,12 +17,6 @@ namespace ClassifyData.App
             if (commandId == (CefMenuCommand)26501)
             {
                 browser.GetHost().ShowDevTools();
-                return true;
-            }
-
-            if (commandId == (CefMenuCommand)26502)
-            {
-                frame.ExecuteJavaScriptAsync("toggleManagement()");
                 return true;
             }
 
