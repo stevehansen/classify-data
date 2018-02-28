@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 using CefSharp.WinForms.Internals;
@@ -23,9 +15,9 @@ namespace ClassifyData.App
 
             WindowState = FormWindowState.Maximized;
 
-            browser = new ChromiumWebBrowser("http://localhost:9000/")
+            browser = new ChromiumWebBrowser(Program.BaseAddress)
             {
-                Dock = DockStyle.Fill,
+                MenuHandler = new AppMenuHandler()
             };
             Controls.Add(browser);
 

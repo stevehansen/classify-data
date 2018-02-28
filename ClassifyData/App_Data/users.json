@@ -13,6 +13,11 @@
         "10024689-1b72-4302-ac46-d846957a0094": {
           "sortOptions": "Schema ASC; Table ASC; Column ASC"
         }
+      },
+      "PersistentObjectSettings": {
+        "3107ea55-830d-39e2-a36a-3e4ff02ed695": {
+          "master-detail": "13.53737492642731%"
+        }
       }
     },
     "ProfileObject": {},

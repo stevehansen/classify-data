@@ -6,6 +6,11 @@
       "UserId": "d3bd3312-0730-43d9-9bf4-9e14c75b00f7"
     },
     {
+      "Id": "da7f3e9e-d1e7-40e0-b1c8-84df88c168ad",
+      "Resource": "Edit/ClassifyData.Configuration",
+      "UserId": "d3bd3312-0730-43d9-9bf4-9e14c75b00f7"
+    },
+    {
       "Id": "2828f9bf-0218-409a-b5f2-b2ba081c462c",
       "Resource": "QueryRead/ClassifyData",
       "UserId": "d3bd3312-0730-43d9-9bf4-9e14c75b00f7"

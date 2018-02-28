@@ -7,6 +7,8 @@ namespace ClassifyData.Service
         public override void OnLoad(PersistentObject obj, PersistentObject parent)
         {
             obj.Breadcrumb = obj.ObjectId;
+
+            ColumnInfoActions.SetInfo(Context, obj);
         }
     }
 }

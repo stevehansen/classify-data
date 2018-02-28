@@ -692,13 +692,55 @@
           ],
           "Queries": []
         },
+        "0ca90ce6-733f-37ab-9a45-98253d60abd2": {
+          "$id": "PersistentObject:0ca90ce6-733f-37ab-9a45-98253d60abd2",
+          "SchemaName": "ClassifyData",
+          "Type": "Configuration",
+          "Salt": "1bFNSoUrrctJ-tKPUnPtukTgJxjtRsvTachI8bf0D7o",
+          "Breadcrumb": "Configuration",
+          "StateBehavior": 4,
+          "Groups": [
+            {
+              "$id": "PersistentObjectAttributeGroup:f74017ad-94e4-46bd-b959-43e46d3fb118",
+              "Id": "f74017ad-94e4-46bd-b959-43e46d3fb118"
+            }
+          ],
+          "Tabs": [
+            {
+              "$id": "PersistentObjectAttributeTab:d6487513-024b-44b4-8eb0-751ab8dced2b",
+              "Id": "d6487513-024b-44b4-8eb0-751ab8dced2b"
+            }
+          ],
+          "Attributes": [
+            {
+              "$id": "PersistentObjectAttribute:78db4f7a-c899-36b4-8c28-147298f31009",
+              "Id": "78db4f7a-c899-36b4-8c28-147298f31009",
+              "Offset": 10,
+              "Name": "ConnectionString",
+              "Label": {
+                "en": "Connection string"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 4,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:f74017ad-94e4-46bd-b959-43e46d3fb118"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:d6487513-024b-44b4-8eb0-751ab8dced2b"
+              }
+            }
+          ],
+          "Queries": []
+        },
         "3107ea55-830d-39e2-a36a-3e4ff02ed695": {
           "$id": "PersistentObject:3107ea55-830d-39e2-a36a-3e4ff02ed695",
           "SchemaName": "ClassifyData",
           "Type": "Database",
           "Salt": "ntfEWTX97KxKDCOt7RTo7qHqSI_u92jJqgPt04zz00E",
           "Breadcrumb": "{Name}",
-          "IsHidden": true,
           "Label": {
             "en": "Database"
           },
@@ -716,12 +758,54 @@
           ],
           "Attributes": [
             {
+              "$id": "PersistentObjectAttribute:3e86bb24-62ab-3722-b3bc-dc3c8654fc1a",
+              "Id": "3e86bb24-62ab-3722-b3bc-dc3c8654fc1a",
+              "Offset": 30,
+              "Name": "Columns",
+              "IsReadOnly": true,
+              "Label": {
+                "en": "Columns"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:fbba5609-3db6-4f55-8ec7-10f4615a3e2a"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:d9c3c856-feba-43a1-960c-36708d5699a7"
+              }
+            },
+            {
               "$id": "PersistentObjectAttribute:6b371f26-18d1-3ff3-a962-848538d528e2",
               "Id": "6b371f26-18d1-3ff3-a962-848538d528e2",
               "Offset": 10,
               "Name": "Name",
+              "IsReadOnly": true,
               "Label": {
                 "en": "Name"
+              },
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:fbba5609-3db6-4f55-8ec7-10f4615a3e2a"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:d9c3c856-feba-43a1-960c-36708d5699a7"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:3f1e3a3b-96d8-3095-ac69-7994c5c9d0df",
+              "Id": "3f1e3a3b-96d8-3095-ac69-7994c5c9d0df",
+              "Offset": 20,
+              "Name": "Tables",
+              "IsReadOnly": true,
+              "Label": {
+                "en": "Tables"
               },
               "Visibility": 7,
               "ColumnSpan": 1,
@@ -760,6 +844,26 @@
     }
   },
   "ProgramUnits": [
+    {
+      "Name": "Config",
+      "Offset": 10,
+      "Title": {
+        "en": "Configuration"
+      },
+      "OpenFirst": true,
+      "Groups": [],
+      "Items": [
+        {
+          "Title": {
+            "en": "Configuration"
+          },
+          "Name": "Configuration",
+          "PersistentObject": {
+            "$ref": "PersistentObject:0ca90ce6-733f-37ab-9a45-98253d60abd2"
+          }
+        }
+      ]
+    },
     {
       "Name": "Server",
       "Title": {
