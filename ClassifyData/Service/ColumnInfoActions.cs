@@ -7,7 +7,24 @@ namespace ClassifyData.Service
 {
     public class ColumnInfoActions : PersistentObjectActionsReference<ClassifyDataEntityModelContainer, ColumnInfo>
     {
-        private const string infoFormat = "use [{0}]; select schema_name(t.schema_id) [Schema], object_name(t.object_id) [Table], c.name [Column]\r\n\t, t_id.value [InformationTypeId], t_name.value [InformationTypeName], l_id.value [SensitivityLabelId], l_name.value [SensitivityLabelName]\r\n\tfrom sys.tables t\r\n\tinner join sys.columns c on c.object_id = t.object_id\r\n\tleft join sys.extended_properties t_id on c.object_id = t_id.major_id and c.column_id = t_id.minor_id and t_id.name = \'sys_information_type_id\'\r\n\tleft join sys.extended_properties t_name on t_id.major_id = t_name.major_id and t_id.minor_id = t_name.minor_id and t_name.name = \'sys_information_type_name\'\r\n\tleft join sys.extended_properties l_id on t_id.major_id = l_id.major_id and t_id.minor_id = l_id.minor_id and l_id.name = \'sys_sensitivity_label_id\'\r\n\tleft join sys.extended_properties l_name on t_id.major_id = l_name.major_id and t_id.minor_id = l_name.minor_id and l_name.name = \'sys_sensitivity_label_name\'";
+        private const string infoFormat = @"use [{0}];
+select 
+	  schema_name(t.schema_id) [Schema]
+	, object_name(t.object_id) [Table]
+	, c.name                   [Column]
+	, ty.name                  [Type]
+	, t_id.value               [InformationTypeId]
+	, t_name.value             [InformationTypeName]
+	, l_id.value               [SensitivityLabelId]
+	, l_name.value             [SensitivityLabelName]
+from sys.tables                   t
+inner join sys.columns            c      on c.object_id       = t.object_id
+inner join sys.types              ty     on ty.system_type_id = c.system_type_id
+left join sys.extended_properties t_id   on c.object_id       = t_id.major_id   and c.column_id   = t_id.minor_id   and t_id.name   = 'sys_information_type_id'
+left join sys.extended_properties t_name on t_id.major_id     = t_name.major_id and t_id.minor_id = t_name.minor_id and t_name.name = 'sys_information_type_name'
+left join sys.extended_properties l_id   on t_id.major_id     = l_id.major_id   and t_id.minor_id = l_id.minor_id   and l_id.name   = 'sys_sensitivity_label_id'
+left join sys.extended_properties l_name on t_id.major_id     = l_name.major_id and t_id.minor_id = l_name.minor_id and l_name.name = 'sys_sensitivity_label_name'";
+
         private const string selectFormat = infoFormat + " where schema_name(t.schema_id) = @p1 collate database_default and object_name(t.object_id) = @p2 collate database_default and c.name = @p0 collate database_default";
         private const string addExtendedPropertyFormat = "exec sp_addextendedproperty @name = N'{0}', @value = {1}, @level0type = N'Schema', @level0name = @p1, @level1type = N'Table',  @level1name = @p2, @level2type = N'Column', @level2name = @p0;";
         private static readonly string setExtendedPropertiesFormat = "use [{0}];" + string.Format(addExtendedPropertyFormat, "sys_information_type_id", "@p3") + string.Format(addExtendedPropertyFormat, "sys_information_type_name", "@p4") + string.Format(addExtendedPropertyFormat, "sys_sensitivity_label_id", "@p5") + string.Format(addExtendedPropertyFormat, "sys_sensitivity_label_name", "@p6");

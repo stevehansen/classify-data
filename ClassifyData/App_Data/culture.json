@@ -624,7 +624,7 @@
     },
     "NoMicrosoftTranslatorAppIdSpecified": {
       "Value": {
-        "en": "No MicrosoftTranslatorAppId has been speficied in the settings. Current translations will be copied."
+        "en": "No MicrosoftTranslatorAppId has been specified in the settings. Current translations will be copied."
       },
       "IsSystem": true
     },
