@@ -526,7 +526,7 @@
           "Type": "ColumnInfo",
           "Salt": "0vse9hRfq3PxLIG8fpwZybxdhlQXHf1UEukX60TjyJk",
           "Breadcrumb": "{Table}: {Column}",
-          "SortOptions": "Schema; Table; Column",
+          "SortOptions": "Schema; Table; Column; Type",
           "Label": {
             "en": "Column"
           },
@@ -676,6 +676,27 @@
               "IsReadOnly": true,
               "Label": {
                 "en": "Table"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
+              "$id": "PersistentObjectAttribute:db94eee7-27ad-4713-8d55-cd030ac75af6",
+              "Id": "db94eee7-27ad-4713-8d55-cd030ac75af6",
+              "Offset": 70,
+              "Name": "Type",
+              "IsReadOnly": true,
+              "Label": {
+									"en": "Type"
               },
               "Visibility": 7,
               "ColumnSpan": 1,

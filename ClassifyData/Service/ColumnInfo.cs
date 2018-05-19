@@ -13,7 +13,9 @@ namespace ClassifyData.Service
         [Key]
         public string Column { get; set; }
 
-        public string InformationTypeId { get; set; }
+		public string Type { get; set; }
+
+		public string InformationTypeId { get; set; }
 
         public string InformationTypeName { get; set; }
 
