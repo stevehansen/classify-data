@@ -80,8 +80,8 @@
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Vidyano.Service, Version=5.33.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vidyano.Service.5.33.1\lib\net45\Vidyano.Service.dll</HintPath>
+    <Reference Include="Vidyano.Service, Version=5.36.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vidyano.Service.5.36.0\lib\net45\Vidyano.Service.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

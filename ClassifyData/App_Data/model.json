@@ -526,7 +526,7 @@
           "Type": "ColumnInfo",
           "Salt": "0vse9hRfq3PxLIG8fpwZybxdhlQXHf1UEukX60TjyJk",
           "Breadcrumb": "{Table}: {Column}",
-          "SortOptions": "Schema; Table; Column; Type",
+          "SortOptions": "Schema; Table; Column",
           "Label": {
             "en": "Column"
           },
@@ -692,11 +692,11 @@
             {
               "$id": "PersistentObjectAttribute:db94eee7-27ad-4713-8d55-cd030ac75af6",
               "Id": "db94eee7-27ad-4713-8d55-cd030ac75af6",
-              "Offset": 70,
+              "Offset": 80,
               "Name": "Type",
               "IsReadOnly": true,
               "Label": {
-									"en": "Type"
+                "en": "Type"
               },
               "Visibility": 7,
               "ColumnSpan": 1,
@@ -906,6 +906,6 @@
     }
   ],
   "Reports": [],
-  "ServiceVersion": "5.33.1+12ad63a",
-  "SeederHash": "EgNWQU7iWVeOIa+C1m7VNmz/TrHGVpAqeRlfF0Gm1no="
+  "ServiceVersion": "5.36.0+5338103",
+  "SeederHash": "FT3mBA89C7M6DlYIShbFZlqCHRYpiuKq7Py/WkFOdRA="
 }

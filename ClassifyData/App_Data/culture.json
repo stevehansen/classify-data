@@ -33,6 +33,12 @@
       "IsClient": true,
       "IsSystem": true
     },
+    "AnUnexpectedDatabaseErrorOccurred": {
+      "Value": {
+        "en": "An unexpected database error occurred."
+      },
+      "IsSystem": true
+    },
     "ApplicationOutdated": {
       "Value": {
         "en": "A new version of this app is available."
@@ -64,6 +70,12 @@
     "AttributeCheckPasswordComplexityRule": {
       "Value": {
         "en": "{{0}} does not meet complexity requirements or it has appeared in a data breach. (minimum length: {0}, including {1})"
+      },
+      "IsSystem": true
+    },
+    "AttributeCombinationIsInvalid": {
+      "Value": {
+        "en": "Combination {0} is invalid."
       },
       "IsSystem": true
     },
@@ -172,13 +184,6 @@
       "IsClient": true,
       "IsSystem": true
     },
-    "Close": {
-      "Value": {
-        "en": "Close"
-      },
-      "IsClient": true,
-      "IsSystem": true
-    },
     "ClearFilter": {
       "Value": {
         "en": "Clear"
@@ -189,6 +194,13 @@
     "ClearFilterFrom": {
       "Value": {
         "en": "Clear filter from {0}"
+      },
+      "IsClient": true,
+      "IsSystem": true
+    },
+    "Close": {
+      "Value": {
+        "en": "Close"
       },
       "IsClient": true,
       "IsSystem": true
@@ -280,6 +292,18 @@
       },
       "IsSystem": true
     },
+    "EnterPassword": {
+      "Value": {
+        "en": "Enter password"
+      },
+      "IsSystem": true
+    },
+    "EnterTwoFactorCode": {
+      "Value": {
+        "en": "Enter two-factor code"
+      },
+      "IsSystem": true
+    },
     "Error": {
       "Value": {
         "en": "Error"
@@ -362,10 +386,24 @@
       "IsClient": true,
       "IsSystem": true
     },
+    "GroupByColumn": {
+      "Value": {
+        "en": "Group by {0}"
+      },
+      "IsClient": true,
+      "IsSystem": true
+    },
     "HelpBreadcrumb": {
       "Value": {
         "en": "{0} - Help"
       },
+      "IsSystem": true
+    },
+    "HideColumn": {
+      "Value": {
+        "en": "Hide column"
+      },
+      "IsClient": true,
       "IsSystem": true
     },
     "IgnoreUnsavedChanges": {
@@ -578,6 +616,12 @@
       },
       "IsSystem": true
     },
+    "NewPasswordMustBeDifferent": {
+      "Value": {
+        "en": "Your new password must be different from your previous password."
+      },
+      "IsSystem": true
+    },
     "NewReference": {
       "Value": {
         "en": "New"
@@ -588,6 +632,12 @@
     "NewUsers": {
       "Value": {
         "en": "New users (per month)"
+      },
+      "IsSystem": true
+    },
+    "Next": {
+      "Value": {
+        "en": "Next"
       },
       "IsSystem": true
     },
@@ -674,6 +724,12 @@
       },
       "IsSystem": true
     },
+    "NotYou": {
+      "Value": {
+        "en": "Not you?"
+      },
+      "IsSystem": true
+    },
     "OK": {
       "Value": {
         "en": "OK"
@@ -749,6 +805,12 @@
         "en": "Pin"
       },
       "IsClient": true,
+      "IsSystem": true
+    },
+    "Previous": {
+      "Value": {
+        "en": "Previous"
+      },
       "IsSystem": true
     },
     "ReferenceEmptyValue": {
@@ -892,6 +954,12 @@
     "SigningIn": {
       "Value": {
         "en": "Signing in ..."
+      },
+      "IsSystem": true
+    },
+    "SignInTo": {
+      "Value": {
+        "en": "Sign in to {0}"
       },
       "IsSystem": true
     },
@@ -1113,6 +1181,12 @@
     "UserSettingsNewPassword": {
       "Value": {
         "en": "New password"
+      },
+      "IsSystem": true
+    },
+    "UserSettingsOldPassword": {
+      "Value": {
+        "en": "Old password"
       },
       "IsSystem": true
     },

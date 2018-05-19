@@ -90,6 +90,8 @@ namespace ClassifyData.Service
 
                 PopulateAfterPersist(obj, entity);
             }
+            else
+                throw new SaveFailedException();
         }
 
         /// <inheritdoc />
@@ -109,6 +111,8 @@ namespace ClassifyData.Service
 
                 PopulateAfterPersist(obj, newEntity);
             }
+            else
+                throw new SaveFailedException();
         }
 
         /// <inheritdoc />
