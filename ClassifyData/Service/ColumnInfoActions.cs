@@ -15,6 +15,13 @@ namespace ClassifyData.Service
         private const string tablesFormat = "use [{0}]; select sum(case when a.count = 0 then 0 else 1 end) Count, count(0) Total from (\r\nselect sum(case when t_id.name is null then 0 else 1 end) count\r\n\tfrom sys.tables t\r\n\tinner join sys.columns c on c.object_id = t.object_id\r\n\tleft join sys.extended_properties t_id on c.object_id = t_id.major_id and c.column_id = t_id.minor_id and t_id.name = \'sys_information_type_id\'\r\n\tgroup by t.object_id\r\n) a";
         private const string columnsFormat = "use [{0}]; select sum(case when t_id.name is null then 0 else 1 end) [Count], count(0) [Total]\r\n\tfrom sys.tables t\r\n\tinner join sys.columns c on c.object_id = t.object_id\r\n\tleft join sys.extended_properties t_id on c.object_id = t_id.major_id and c.column_id = t_id.minor_id and t_id.name = \'sys_information_type_id\'";
 
+        public override void OnConstruct(Query query, PersistentObject parent)
+        {
+            base.OnConstruct(query, parent);
+
+            query.EnableSelectAll = true;
+        }
+
         // ReSharper disable once RedundantOverriddenMember
         public override void OnBulkConstruct(PersistentObject obj, QueryResultItem[] selectedItems)
         {
