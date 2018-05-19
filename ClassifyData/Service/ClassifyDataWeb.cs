@@ -10,6 +10,10 @@ namespace ClassifyData.Service
 {
     public class ClassifyDataWeb : CustomApiController
     {
+#if DEBUG
+        public override string DefaultUser => "admin";
+#endif
+
         //public HttpResponseMessage Ping(ApiArgs args)
         //{
         //    return new HttpResponseMessage(HttpStatusCode.NoContent);
