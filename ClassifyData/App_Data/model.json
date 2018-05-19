@@ -550,6 +550,7 @@
               "Offset": 30,
               "Name": "Column",
               "IsReadOnly": true,
+              "CanGroupBy": true,
               "Label": {
                 "en": "Column"
               },
@@ -591,6 +592,7 @@
               "Id": "db291c74-b045-35a4-ad1b-4ec15e6a4ed2",
               "Offset": 50,
               "Name": "InformationTypeName",
+              "CanGroupBy": true,
               "Label": {
                 "en": "Information type"
               },
@@ -612,6 +614,7 @@
               "Offset": 10,
               "Name": "Schema",
               "IsReadOnly": true,
+              "CanGroupBy": true,
               "Label": {
                 "en": "Schema"
               },
@@ -653,6 +656,7 @@
               "Id": "d42e7722-fa6a-3946-b071-cf0b729e0a8b",
               "Offset": 70,
               "Name": "SensitivityLabelName",
+              "CanGroupBy": true,
               "Label": {
                 "en": "Sensitivity label"
               },
@@ -674,6 +678,7 @@
               "Offset": 20,
               "Name": "Table",
               "IsReadOnly": true,
+              "CanGroupBy": true,
               "Label": {
                 "en": "Table"
               },
@@ -695,6 +700,7 @@
               "Offset": 80,
               "Name": "Type",
               "IsReadOnly": true,
+              "CanGroupBy": true,
               "Label": {
                 "en": "Type"
               },
