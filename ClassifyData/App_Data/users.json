@@ -41,7 +41,14 @@
       "Users"
     ],
     "CreationDate": "2018-02-28T22:17:23.0394631+01:00",
-    "SettingsObject": {},
+    "SettingsObject": {
+      "QueryGridSettings": {},
+      "PersistentObjectSettings": {
+        "3107ea55-830d-39e2-a36a-3e4ff02ed695": {
+          "master-detail": "12.007062978222484%"
+        }
+      }
+    },
     "ProfileObject": {},
     "HasPassword": false
   },

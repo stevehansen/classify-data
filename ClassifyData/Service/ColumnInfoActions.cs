@@ -19,7 +19,7 @@ select
 	, l_name.value             [SensitivityLabelName]
 from sys.tables                   t
 inner join sys.columns            c      on c.object_id       = t.object_id
-inner join sys.types              ty     on ty.system_type_id = c.system_type_id
+inner join sys.types              ty     on ty.user_type_id   = c.user_type_id
 left join sys.extended_properties t_id   on c.object_id       = t_id.major_id   and c.column_id   = t_id.minor_id   and t_id.name   = 'sys_information_type_id'
 left join sys.extended_properties t_name on t_id.major_id     = t_name.major_id and t_id.minor_id = t_name.minor_id and t_name.name = 'sys_information_type_name'
 left join sys.extended_properties l_id   on t_id.major_id     = l_id.major_id   and t_id.minor_id = l_id.minor_id   and l_id.name   = 'sys_sensitivity_label_id'
