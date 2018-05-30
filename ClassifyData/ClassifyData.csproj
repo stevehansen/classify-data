@@ -94,6 +94,7 @@
     <Compile Include="Service\ConfigurationActions.cs" />
     <Compile Include="Service\Database.cs" />
     <Compile Include="Service\DatabaseActions.cs" />
+    <Compile Include="Service\DataBaseExtensions.cs" />
     <Compile Include="Service\PersistentObjectActionsReference.cs" />
     <Content Include="App_Data\Websites\Default\index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -1,13 +1,18 @@
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Vidyano.Service.ClientOperations;
 using Vidyano.Service.Repository;
 
 namespace ClassifyData.Service
 {
-    public class ColumnInfoActions : PersistentObjectActionsReference<ClassifyDataEntityModelContainer, ColumnInfo>
-    {
-        private const string infoFormat = @"use [{0}];
+	public class ColumnInfoActions : PersistentObjectActionsReference<ClassifyDataEntityModelContainer, ColumnInfo>
+	{
+		/// <summary>
+		/// Maps to <see cref="ColumnInfo"/>
+		/// </summary>
+		private const string infoFormat = @"use [{0}];
 select 
 	  schema_name(t.schema_id) [Schema]
 	, object_name(t.object_id) [Table]
@@ -18,80 +23,165 @@ select
 	, l_id.value               [SensitivityLabelId]
 	, l_name.value             [SensitivityLabelName]
 from sys.tables                   t
-inner join sys.columns            c      on c.object_id       = t.object_id
-inner join sys.types              ty     on ty.user_type_id   = c.user_type_id
-left join sys.extended_properties t_id   on c.object_id       = t_id.major_id   and c.column_id   = t_id.minor_id   and t_id.name   = 'sys_information_type_id'
-left join sys.extended_properties t_name on t_id.major_id     = t_name.major_id and t_id.minor_id = t_name.minor_id and t_name.name = 'sys_information_type_name'
-left join sys.extended_properties l_id   on t_id.major_id     = l_id.major_id   and t_id.minor_id = l_id.minor_id   and l_id.name   = 'sys_sensitivity_label_id'
-left join sys.extended_properties l_name on t_id.major_id     = l_name.major_id and t_id.minor_id = l_name.minor_id and l_name.name = 'sys_sensitivity_label_name'";
+inner join sys.columns            c                on c.object_id     = t.object_id
+inner join sys.types              ty               on ty.user_type_id = c.user_type_id
+left join sys.extended_properties t_id             on c.object_id     = t_id.major_id   and c.column_id = t_id.minor_id          and t_id.name          = 'sys_information_type_id'
+left join sys.extended_properties t_name           on c.object_id     = t_name.major_id and c.column_id = t_name.minor_id        and t_name.name        = 'sys_information_type_name'
+left join sys.extended_properties l_id             on c.object_id     = l_id.major_id   and c.column_id = l_id.minor_id          and l_id.name          = 'sys_sensitivity_label_id'
+left join sys.extended_properties l_name           on c.object_id     = l_name.major_id and c.column_id = l_name.minor_id        and l_name.name        = 'sys_sensitivity_label_name'";
 
-        private const string selectFormat = infoFormat + " where schema_name(t.schema_id) = @p1 collate database_default and object_name(t.object_id) = @p2 collate database_default and c.name = @p0 collate database_default";
-        private const string addExtendedPropertyFormat = "exec sp_addextendedproperty @name = N'{0}', @value = {1}, @level0type = N'Schema', @level0name = @p1, @level1type = N'Table',  @level1name = @p2, @level2type = N'Column', @level2name = @p0;";
-        private static readonly string setExtendedPropertiesFormat = "use [{0}];" + string.Format(addExtendedPropertyFormat, "sys_information_type_id", "@p3") + string.Format(addExtendedPropertyFormat, "sys_information_type_name", "@p4") + string.Format(addExtendedPropertyFormat, "sys_sensitivity_label_id", "@p5") + string.Format(addExtendedPropertyFormat, "sys_sensitivity_label_name", "@p6");
-        private static readonly string updateExtendedPropertiesFormat = setExtendedPropertiesFormat.Replace("sp_addextendedproperty", "sp_updateextendedproperty");
-        private const string tablesFormat = "use [{0}]; select sum(case when a.count = 0 then 0 else 1 end) Count, count(0) Total from (\r\nselect sum(case when t_id.name is null then 0 else 1 end) count\r\n\tfrom sys.tables t\r\n\tinner join sys.columns c on c.object_id = t.object_id\r\n\tleft join sys.extended_properties t_id on c.object_id = t_id.major_id and c.column_id = t_id.minor_id and t_id.name = \'sys_information_type_id\'\r\n\tgroup by t.object_id\r\n) a";
-        private const string columnsFormat = "use [{0}]; select sum(case when t_id.name is null then 0 else 1 end) [Count], count(0) [Total]\r\n\tfrom sys.tables t\r\n\tinner join sys.columns c on c.object_id = t.object_id\r\n\tleft join sys.extended_properties t_id on c.object_id = t_id.major_id and c.column_id = t_id.minor_id and t_id.name = \'sys_information_type_id\'";
+		private const string selectFormat = infoFormat + " where schema_name(t.schema_id) = @p1 collate database_default and object_name(t.object_id) = @p2 collate database_default and c.name = @p0 collate database_default";
 
-        public override void OnConstruct(Query query, PersistentObject parent)
-        {
-            base.OnConstruct(query, parent);
+		private const string upsertExtendedProperty = @"
+declare @tableid  int = object_id(@schemaname + '.' + @tablename);
+declare @columnid int = (select [column_id] from sys.columns where [name] = @columnname and [object_id] = @tableid);
 
-            query.EnableSelectAll = true;
-        }
+if exists 
+	(select null
+		from sys.extended_properties
+		where [major_id] = @tableid
+		and [minor_id] = @columnid
+		and [name]     = @name
+	)
+	begin
 
-        // ReSharper disable once RedundantOverriddenMember
-        public override void OnBulkConstruct(PersistentObject obj, QueryResultItem[] selectedItems)
-        {
-            base.OnBulkConstruct(obj, selectedItems);
-        }
+		execute sys.sp_updateextendedproperty
+			@name       = @name, 
+			@value      = @value, 
+			@level0type = N'Schema', 
+			@level0name = @schemaname, 
+			@level1type = N'Table',  
+			@level1name = @tablename, 
+			@level2type = N'Column', 
+			@level2name = @columnname;
+	end
+else
+	begin
 
-        protected override ColumnInfo LoadEntity(PersistentObject obj, bool forRefresh = false)
-        {
-            var database = obj.Parent.ObjectId;
-            var ids = obj.ObjectId.Split(';');
-            return Context.Database.SqlQuery<ColumnInfo>(string.Format(selectFormat, database), ids[0], ids[1], ids[2]).First();
-        }
+		exec sys.sp_addextendedproperty  
+			@name       = @name, 
+			@value      = @value, 
+			@level0type = N'Schema', 
+			@level0name = @schemaname, 
+			@level1type = N'Table',  
+			@level1name = @tablename, 
+			@level2type = N'Column', 
+			@level2name = @columnname
+	end";
 
-        public override void OnSave(PersistentObject obj)
-        {
-            var informationTypeIdAttr = obj["InformationTypeId"];
-            var sensitivityLabelIdAttr = obj["SensitivityLabelId"];
+		private const string tablesFormat = @"use [{0}];
+			select
+				sum(case when a.count = 0 then 0 else 1 end) Count
+			  , count(0) Total
+			from (
+				select sum(case when t_id.name is null then 0 else 1 end) count
+				from sys.tables t
+				inner join sys.columns c               on c.object_id = t.object_id
+				left join sys.extended_properties t_id on c.object_id = t_id.major_id
+													  and c.column_id = t_id.minor_id
+													  and t_id.name = 'sys_information_type_id'
+				group by t.object_id
+				) a";
+		private const string columnsFormat = @"use [{0}];
+			select sum(case when t_id.name is null then 0 else 1 end) [Count], count(0) [Total]
+			from sys.tables t
+			inner join sys.columns c on c.object_id = t.object_id
+			left join sys.extended_properties t_id on c.object_id = t_id.major_id
+												  and c.column_id = t_id.minor_id
+												  and t_id.name = 'sys_information_type_id'";
 
-            if (!CheckRules(obj))
-                return;
+		public override void OnConstruct(Query query, PersistentObject parent)
+		{
+			base.OnConstruct(query, parent);
 
-            var entity = LoadEntity(obj);
+			query.EnableSelectAll = true;
+		}
 
-            var sql = string.Format(entity.InformationTypeId == null ? setExtendedPropertiesFormat : updateExtendedPropertiesFormat, obj.Parent.ObjectId);
-            var ids = obj.ObjectId.Split(';');
-            var informationTypeId = (string)informationTypeIdAttr ?? string.Empty;
-            var informationTypeName = informationTypeId.Length > 0 ? informationTypeIdAttr.Options.First(o => o.StartsWith(informationTypeId + "=")).Split('=')[1] : string.Empty;
-            var sensitivityLabelId = (string)sensitivityLabelIdAttr ?? string.Empty;
-            var sensitivityLabelName = sensitivityLabelId.Length > 0 ? sensitivityLabelIdAttr.Options.First(o => o.StartsWith(sensitivityLabelId + "=")).Split('=')[1] : string.Empty;
-            Context.Database.ExecuteSqlCommand(sql, ids[0], ids[1], ids[2], informationTypeId, informationTypeName, sensitivityLabelId, sensitivityLabelName);
+		// ReSharper disable once RedundantOverriddenMember
+		public override void OnBulkConstruct(PersistentObject obj, QueryResultItem[] selectedItems)
+		{
+			base.OnBulkConstruct(obj, selectedItems);
+		}
 
-            Manager.Current.QueueClientOperation(new RefreshOperation("ClassifyData.Database", obj.Parent.ObjectId));
-        }
+		protected override ColumnInfo LoadEntity(PersistentObject obj, bool forRefresh = false)
+		{
+			var database = obj.Parent.ObjectId;
+			var ids = obj.ObjectId.Split(';');
+			return Context.Database.SqlQuery<ColumnInfo>(string.Format(selectFormat, database), ids[0], ids[1], ids[2]).First();
+		}
 
-        public IEnumerable<ColumnInfo> ForDatabase(CustomQueryArgs args)
-        {
-            var database = args.Parent.ObjectId;
-            return Context.Database.SqlQuery<ColumnInfo>(string.Format(infoFormat, database)).ToArray();
-        }
+		public override void OnSave(PersistentObject obj)
+		{
+			var informationTypeIdAttr = obj["InformationTypeId"];
+			var sensitivityLabelIdAttr = obj["SensitivityLabelId"];
 
-        public static void SetInfo(ClassifyDataEntityModelContainer context, PersistentObject databaseObj)
-        {
-            var tablesInfo = context.Database.SqlQuery<CountTotal>(string.Format(tablesFormat, databaseObj.ObjectId)).First();
-            databaseObj["Tables"].SetOriginalValue(string.Format("{0} / {1}", tablesInfo.Count, tablesInfo.Total));
-            var columnInfo = context.Database.SqlQuery<CountTotal>(string.Format(columnsFormat, databaseObj.ObjectId)).First();
-            databaseObj["Columns"].SetOriginalValue(string.Format("{0} / {1}", columnInfo.Count, columnInfo.Total));
-        }
+			if (!CheckRules(obj))
+				return;
 
-        private sealed class CountTotal
-        {
-            public int Count { get; set; }
+			var entity = LoadEntity(obj);
 
-            public int Total { get; set; }
-        }
-    }
+			var informationTypeId = (string)informationTypeIdAttr ?? string.Empty;
+			var informationTypeName = informationTypeId.Length > 0 ? informationTypeIdAttr.Options.First(o => o.StartsWith(informationTypeId + "=")).Split('=')[1] : string.Empty;
+
+			var sensitivityLabelId = (string)sensitivityLabelIdAttr ?? string.Empty;
+			var sensitivityLabelName = sensitivityLabelId.Length > 0 ? sensitivityLabelIdAttr.Options.First(o => o.StartsWith(sensitivityLabelId + "=")).Split('=')[1] : string.Empty;
+
+			var ids = obj.ObjectId.Split(';');
+
+			var columnName = ids[0];
+			var schemaName = ids[1];
+			var tableName = ids[2];
+
+			var sql = $@"use [{obj.Parent.ObjectId}];
+{upsertExtendedProperty}";
+
+			if (Context.Database.Connection.State == ConnectionState.Closed)
+				Context.Database.Connection.Open();
+
+
+			foreach (var extendedproperty in new[] {
+					new { name = "sys_information_type_id",    value = informationTypeId   },
+					new { name = "sys_information_type_name",  value = informationTypeName },
+					new { name = "sys_sensitivity_label_id",   value = sensitivityLabelId  },
+					new { name = "sys_sensitivity_label_name", value = sensitivityLabelName}
+				})
+			{
+				using (IDbCommand cmd = Context.Database.Connection.CreateCommand())
+				{
+					cmd.CommandText = sql;
+					cmd.AddParameterWithValue("@name", extendedproperty.name);
+					cmd.AddParameterWithValue("@value", extendedproperty.value);
+
+					cmd.AddParameterWithValue("@schemaname", schemaName);
+					cmd.AddParameterWithValue("@tablename", tableName);
+					cmd.AddParameterWithValue("@columnname", columnName);
+					cmd.ExecuteNonQuery();
+				}
+			}
+
+			Manager.Current.QueueClientOperation(new RefreshOperation("ClassifyData.Database", obj.Parent.ObjectId));
+		}
+
+
+		public IEnumerable<ColumnInfo> ForDatabase(CustomQueryArgs args)
+		{
+			var database = args.Parent.ObjectId;
+			return Context.Database.SqlQuery<ColumnInfo>(string.Format(infoFormat, database)).ToArray();
+		}
+
+		public static void SetInfo(ClassifyDataEntityModelContainer context, PersistentObject databaseObj)
+		{
+			var tablesInfo = context.Database.SqlQuery<CountTotal>(string.Format(tablesFormat, databaseObj.ObjectId)).First();
+			databaseObj["Tables"].SetOriginalValue(string.Format("{0} / {1}", tablesInfo.Count, tablesInfo.Total));
+			var columnInfo = context.Database.SqlQuery<CountTotal>(string.Format(columnsFormat, databaseObj.ObjectId)).First();
+			databaseObj["Columns"].SetOriginalValue(string.Format("{0} / {1}", columnInfo.Count, columnInfo.Total));
+		}
+
+		private sealed class CountTotal
+		{
+			public int Count { get; set; }
+
+			public int Total { get; set; }
+		}
+	}
 }
