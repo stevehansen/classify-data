@@ -1,6 +1,8 @@
 # classify-data
 Helper application to use bulk operations on SQL Server's classify data.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/i75otcm0sefnd87h?svg=true)](https://ci.appveyor.com/project/SteveHansen/classify-data)
+
 ## Running the application from source
 
 The application requires Visual Studio 2017 (Community or higher) to open the ClassifyData.sln solution file. If needed the web.config needs to be changed (it currently points to server . aka local using integrated security).
