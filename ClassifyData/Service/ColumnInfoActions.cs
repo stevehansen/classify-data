@@ -22,13 +22,16 @@ select
 	, t_name.value             [InformationTypeName]
 	, l_id.value               [SensitivityLabelId]
 	, l_name.value             [SensitivityLabelName]
+	, d.value                  [Description]
 from sys.tables                   t
 inner join sys.columns            c                on c.object_id     = t.object_id
 inner join sys.types              ty               on ty.user_type_id = c.user_type_id
 left join sys.extended_properties t_id             on c.object_id     = t_id.major_id   and c.column_id = t_id.minor_id          and t_id.name          = 'sys_information_type_id'
 left join sys.extended_properties t_name           on c.object_id     = t_name.major_id and c.column_id = t_name.minor_id        and t_name.name        = 'sys_information_type_name'
 left join sys.extended_properties l_id             on c.object_id     = l_id.major_id   and c.column_id = l_id.minor_id          and l_id.name          = 'sys_sensitivity_label_id'
-left join sys.extended_properties l_name           on c.object_id     = l_name.major_id and c.column_id = l_name.minor_id        and l_name.name        = 'sys_sensitivity_label_name'";
+left join sys.extended_properties l_name           on c.object_id     = l_name.major_id and c.column_id = l_name.minor_id        and l_name.name        = 'sys_sensitivity_label_name'
+left join sys.extended_properties d                on c.object_id     = d.major_id      and c.column_id = d.minor_id             and d.name             = 'description'
+";
 
 		private const string selectFormat = infoFormat + " where schema_name(t.schema_id) = @p1 collate database_default and object_name(t.object_id) = @p2 collate database_default and c.name = @p0 collate database_default";
 
@@ -112,21 +115,38 @@ else
 
 		public override void OnSave(PersistentObject obj)
 		{
-			var informationTypeIdAttr = obj["InformationTypeId"];
-			var sensitivityLabelIdAttr = obj["SensitivityLabelId"];
-
 			if (!CheckRules(obj))
 				return;
 
-			var entity = LoadEntity(obj);
+		    var changedProperties = Empty<string>.Array.Select(_ => new { name = default(string), value = default(string) }).ToList();
 
-			var informationTypeId = (string)informationTypeIdAttr ?? string.Empty;
-			var informationTypeName = informationTypeId.Length > 0 ? informationTypeIdAttr.Options.First(o => o.StartsWith(informationTypeId + "=")).Split('=')[1] : string.Empty;
+			var informationTypeIdAttr = obj["InformationTypeId"];
+			var sensitivityLabelIdAttr = obj["SensitivityLabelId"];
+		    var descriptionAttr = obj["Description"];
 
-			var sensitivityLabelId = (string)sensitivityLabelIdAttr ?? string.Empty;
-			var sensitivityLabelName = sensitivityLabelId.Length > 0 ? sensitivityLabelIdAttr.Options.First(o => o.StartsWith(sensitivityLabelId + "=")).Split('=')[1] : string.Empty;
+		    if (informationTypeIdAttr.IsValueChanged)
+		    {
+		        var informationTypeId = (string)informationTypeIdAttr ?? string.Empty;
+		        var informationTypeName = informationTypeId.Length > 0 ? informationTypeIdAttr.Options.First(o => o.StartsWith(informationTypeId + "=")).Split('=')[1] : string.Empty;
+		        changedProperties.Add(new { name = "sys_information_type_id",   value = informationTypeId   });
+		        changedProperties.Add(new { name = "sys_information_type_name", value = informationTypeName });
+		    }
 
-			var ids = obj.ObjectId.Split(';');
+		    if (sensitivityLabelIdAttr.IsValueChanged)
+		    {
+		        var sensitivityLabelId = (string)sensitivityLabelIdAttr ?? string.Empty;
+		        var sensitivityLabelName = sensitivityLabelId.Length > 0 ? sensitivityLabelIdAttr.Options.First(o => o.StartsWith(sensitivityLabelId + "=")).Split('=')[1] : string.Empty;
+		        changedProperties.Add(new { name = "sys_sensitivity_label_id",   value = sensitivityLabelId   });
+		        changedProperties.Add(new { name = "sys_sensitivity_label_name", value = sensitivityLabelName });
+		    }
+
+            if (descriptionAttr.IsValueChanged)
+		    {
+		        var description = (string)obj["Description"] ?? string.Empty;
+                changedProperties.Add(new { name = "description", value = description });
+		    }
+
+		    var ids = obj.ObjectId.Split(';');
 
 			var columnName = ids[0];
 			var schemaName = ids[1];
@@ -139,12 +159,7 @@ else
 				Context.Database.Connection.Open();
 
 
-			foreach (var extendedproperty in new[] {
-					new { name = "sys_information_type_id",    value = informationTypeId   },
-					new { name = "sys_information_type_name",  value = informationTypeName },
-					new { name = "sys_sensitivity_label_id",   value = sensitivityLabelId  },
-					new { name = "sys_sensitivity_label_name", value = sensitivityLabelName}
-				})
+		    foreach (var extendedproperty in changedProperties)
 			{
 				using (IDbCommand cmd = Context.Database.Connection.CreateCommand())
 				{

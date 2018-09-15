@@ -567,6 +567,26 @@
               }
             },
             {
+              "$id": "PersistentObjectAttribute:d1a9aecc-f13c-35c4-9b13-510aa00d6466",
+              "Id": "d1a9aecc-f13c-35c4-9b13-510aa00d6466",
+              "Offset": 90,
+              "Name": "Description",
+              "Label": {
+                "en": "Description"
+              },
+              "Visibility": 7,
+              "ColumnSpan": 1,
+              "DataType": {
+                "$ref": "DataType:String"
+              },
+              "Group": {
+                "$ref": "PersistentObjectAttributeGroup:692449d9-df78-4517-b1e1-f9a35e18ce09"
+              },
+              "Tab": {
+                "$ref": "PersistentObjectAttributeTab:2353ad09-c7ed-4a16-ac30-be6c9ed66545"
+              }
+            },
+            {
               "$id": "PersistentObjectAttribute:9bed0f9a-ee81-3688-88ca-06f005a99ed2",
               "Id": "9bed0f9a-ee81-3688-88ca-06f005a99ed2",
               "Offset": 40,

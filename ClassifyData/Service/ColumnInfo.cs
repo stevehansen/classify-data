@@ -22,5 +22,7 @@ namespace ClassifyData.Service
         public string SensitivityLabelId { get; set; }
 
         public string SensitivityLabelName { get; set; }
+
+        public string Description { get; set; }
     }
 }
