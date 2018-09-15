@@ -119,9 +119,9 @@ namespace ClassifyData.Service
         protected override void UpdateEntity(PersistentObject obj, TEntity entity)
         {
             if (entity == null)
-                obj.ThrowNotFound();
+                throw new UnableToLoadEntityException(obj);
 
-            obj.PopulateObjectValues(entity, Context, false);
+            obj.PopulateObjectValues(entity, Context, obj.IsNew);
         }
 
         /// <inheritdoc />
@@ -187,7 +187,7 @@ namespace ClassifyData.Service
                 loadEntity = Context.GetEntity<TEntity>(obj);
 
             if (loadEntity != null && forRefresh)
-                obj.PopulateObjectValues(loadEntity, Context, false);
+                obj.PopulateObjectValues(loadEntity, Context, obj.IsNew);
             return loadEntity;
         }
 

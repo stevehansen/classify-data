@@ -1,4 +1,8 @@
 {
+  "AllowWebsockets": {
+    "Id": "01bad25d-a93f-4600-8e3a-6fa8585d083c",
+    "Value": "True"
+  },
   "AnalyticsKey": {
     "Id": "121d94b3-e1fe-41f2-b6af-2e3657a11724"
   },

@@ -838,6 +838,13 @@
       "IsClient": true,
       "IsSystem": true
     },
+    "Reload": {
+      "Value": {
+        "en": "Reload"
+      },
+      "IsClient": true,
+      "IsSystem": true
+    },
     "RemoveFile": {
       "Value": {
         "en": "Remove"
@@ -934,6 +941,13 @@
     "SendEmail": {
       "Value": {
         "en": "Send Email"
+      },
+      "IsClient": true,
+      "IsSystem": true
+    },
+    "SessionLost": {
+      "Value": {
+        "en": "You signed out in another tab or window. Reload to refresh your session."
       },
       "IsClient": true,
       "IsSystem": true
@@ -1090,9 +1104,15 @@
       "IsClient": true,
       "IsSystem": true
     },
+    "UnableToCreateEntityForPersistentObject": {
+      "Value": {
+        "en": "Could not create new {0}."
+      },
+      "IsSystem": true
+    },
     "UnableToLoadEntityForPersistentObject": {
       "Value": {
-        "en": "Unable to load the entity for PersistentObject {0} ({1})."
+        "en": "{0} ({1}) not found or access denied."
       },
       "IsSystem": true
     },
