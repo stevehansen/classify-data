@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
 using CefSharp.WinForms.Internals;
@@ -26,7 +27,7 @@ namespace ClassifyData.App
 
         private void OnBrowserTitleChanged(object sender, TitleChangedEventArgs args)
         {
-            this.InvokeOnUiThreadIfRequired(() => Text = args.Title);
+            this.BeginInvoke(new Action(() => Text = args.Title));
         }
     }
 }
