@@ -1,5 +1,23 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+		":rebaseStalePrs"
+  ],
+	"labels": ["dependencies"],
+	"assigneesFromCodeOwners": true,
+	"schedule": ["after 9pm and before 7am every weekday", "every weekend"],
+	"packageRules": [
+    {
+      "matchPackagePatterns": ["ThisAssembly"],
+      "groupName": "ThisAssembly"
+    },
+		{
+      "matchPackagePatterns": ["Vidyano"],
+      "groupName": "Vidyano"
+    },
+		{
+      "matchPackagePatterns": ["CefSharp"],
+      "groupName": "CefSharp"
+    }
   ]
 }

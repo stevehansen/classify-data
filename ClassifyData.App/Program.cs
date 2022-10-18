@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web.Http;
 using System.Windows.Forms;
 using CefSharp;
@@ -21,7 +22,7 @@ namespace ClassifyData.App
             using (WebApp.Start(BaseAddress, Configuration)) // TODO: Try other ports in case 9000 is in use
             {
                 var settings = new CefSettings();
-                settings.BrowserSubprocessPath = @"x86\CefSharp.BrowserSubprocess.exe";
+                settings.BrowserSubprocessPath = Path.GetFullPath(@"x86\CefSharp.BrowserSubprocess.exe");
 
                 Cef.Initialize(settings);
 

@@ -132,6 +132,24 @@
       "IsPinned": true,
       "IconName": "Help"
     },
+    "viLoadAdvancedSearch": {
+      "Offset": 1600,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Load"
+      },
+      "IconName": "Add"
+    },
+    "viSaveAdvancedSearch": {
+      "Offset": 1600,
+      "ShowedOn": 2,
+      "IsSystem": true,
+      "DisplayName": {
+        "en": "Save"
+      },
+      "IconName": "Save"
+    },
     "viSearch": {
       "Offset": 1500,
       "ShowedOn": 2,
@@ -932,6 +950,6 @@
     }
   ],
   "Reports": [],
-  "ServiceVersion": "5.38.3+a697611",
-  "SeederHash": "wOBcPC3nwEmZHRUEH3YyizaDKaW11f/33SK0SiDk9lk="
+  "ServiceVersion": "5.48.0+31637c7",
+  "SeederHash": "1+GEBmfp5er49PveM9wuKB+aIqlWijcJyPHrocczvv4="
 }

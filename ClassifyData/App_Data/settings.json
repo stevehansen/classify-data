@@ -69,6 +69,10 @@
     "Id": "2ab7f9f3-9a0b-44e6-9bd5-fd0519e625a5",
     "Value": ""
   },
+  "Default PersistentObject LoadingStrategy": {
+    "Id": "3626ff66-fd0b-48f4-ada7-665c16bbfea9",
+    "Value": "IncludeReferences"
+  },
   "Default QueryComputeTotalItems": {
     "Id": "f2b4d906-4c40-4ad9-b9a3-c40ee7ebee75",
     "Value": "True"
@@ -98,6 +102,9 @@
   },
   "FeedbackNotificationEmailTo": {
     "Id": "3b03a61a-b2f5-4a59-a1fb-639fbc731516"
+  },
+  "JobSchedules": {
+    "Id": "6344a075-b89e-42e2-b1ba-dbc373e4fca9"
   },
   "Log Retention": {
     "Id": "827ea51c-643e-4a76-856a-618776f72019",

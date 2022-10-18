@@ -1082,6 +1082,7 @@
       "Value": {
         "en": "Today"
       },
+      "IsClient": true,
       "IsSystem": true
     },
     "Tomorrow": {
