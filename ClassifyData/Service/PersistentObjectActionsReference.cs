@@ -127,7 +127,7 @@ namespace ClassifyData.Service
         /// <inheritdoc />
         protected override void CheckRules(PersistentObject obj, Type entityType, TEntity entity)
         {
-            var ruleAttributes = obj.Attributes.Where(a => !a.IsReadOnly && (!string.IsNullOrEmpty(a.Rules) || a.Type == DataTypes.Image)).OrderBy(a => a.Offset).ToArray();
+            var ruleAttributes = obj.Attributes.Where(a => !a.IsReadOnly && (!string.IsNullOrEmpty(a.Rules) || a.Type == Vidyano.Service.Repository.DataTypes.Image)).OrderBy(a => a.Offset).ToArray();
 
             var sb = new StringBuilder();
             CheckAttributeRules(entityType, entity, ruleAttributes, sb);
