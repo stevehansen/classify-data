@@ -127,6 +127,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\ClassificationData.cs" />
     <Compile Include="Service\ClassifyDataAdvanced.cs" />
     <Compile Include="Service\ClassifyDataBusinessRules.cs" />
     <Compile Include="Service\ClassifyDataEntityModelContainer.cs" />
