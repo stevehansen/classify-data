@@ -77,6 +77,14 @@
       },
       "IconName": "Save"
     },
+    "ExportData": {
+      "Offset": 25000,
+      "ShowedOn": 5,
+      "DisplayName": {
+        "en": "Export Data"
+      },
+      "IconName": "Download"
+    },
     "ExportToCsv": {
       "Offset": 30001,
       "ShowedOn": 2,
@@ -94,6 +102,14 @@
         "en": "Export"
       },
       "IconName": "Excel"
+    },
+    "ImportData": {
+      "Offset": 25100,
+      "ShowedOn": 5,
+      "DisplayName": {
+        "en": "Import Data"
+      },
+      "IconName": "Upload"
     },
     "New": {
       "Offset": 200,
@@ -131,6 +147,14 @@
       },
       "IsPinned": true,
       "IconName": "Help"
+    },
+    "TestExportData": {
+      "Offset": 25200,
+      "ShowedOn": 5,
+      "DisplayName": {
+        "en": "Test Export"
+      },
+      "IconName": "Test"
     },
     "viLoadAdvancedSearch": {
       "Offset": 1600,

@@ -1,0 +1,61 @@
+{
+  "ExportedAt": "2024-01-15T14:30:00Z",
+  "DatabaseName": "SampleDatabase",
+  "Columns": [
+    {
+      "Schema": "dbo",
+      "Table": "Users",
+      "Column": "Email",
+      "Type": "varchar",
+      "InformationTypeId": "5C503E21-22C6-81FA-620B-F369B8EC38D1",
+      "InformationTypeName": "Contact Info",
+      "SensitivityLabelId": "684a0db2-d514-49d8-8c0c-df84a7b083eb",
+      "SensitivityLabelName": "General",
+      "Description": "User email address for communication"
+    },
+    {
+      "Schema": "dbo",
+      "Table": "Users",
+      "Column": "SSN",
+      "Type": "varchar",
+      "InformationTypeId": "D936EC2C-04A4-9CF7-44C2-378A96456C61",
+      "InformationTypeName": "SSN",
+      "SensitivityLabelId": "331F0B13-76B5-2F1B-A77B-DEF5A73C73C2",
+      "SensitivityLabelName": "Confidential",
+      "Description": "Social Security Number - highly sensitive"
+    },
+    {
+      "Schema": "dbo",
+      "Table": "Orders",
+      "Column": "CreditCardNumber",
+      "Type": "varchar",
+      "InformationTypeId": "D22FA6E9-5EE4-3BDE-4C2B-A409604C4646",
+      "InformationTypeName": "Credit Card",
+      "SensitivityLabelId": "3302ae7f-b8ac-46bc-97f8-378828781efd",
+      "SensitivityLabelName": "Highly Confidential - GDPR",
+      "Description": "Customer credit card information"
+    },
+    {
+      "Schema": "hr",
+      "Table": "Employees",
+      "Column": "DateOfBirth",
+      "Type": "date",
+      "InformationTypeId": "3DE7CC52-710D-4E96-7E20-4D5188D2590C",
+      "InformationTypeName": "Date Of Birth",
+      "SensitivityLabelId": "989ADC05-3F3F-0588-A635-F475B994915B",
+      "SensitivityLabelName": "Confidential - GDPR",
+      "Description": "Employee birth date for HR records"
+    },
+    {
+      "Schema": "public",
+      "Table": "Products",
+      "Column": "ProductName",
+      "Type": "varchar",
+      "InformationTypeId": null,
+      "InformationTypeName": null,
+      "SensitivityLabelId": "1866ca45-1973-4c28-9d12-04d407f147ad",
+      "SensitivityLabelName": "Public",
+      "Description": "Product name - publicly available information"
+    }
+  ]
+}
