@@ -148,6 +148,14 @@
       "IsPinned": true,
       "IconName": "Help"
     },
+    "TestExportData": {
+      "Offset": 25200,
+      "ShowedOn": 5,
+      "DisplayName": {
+        "en": "Test Export"
+      },
+      "IconName": "Test"
+    },
     "viLoadAdvancedSearch": {
       "Offset": 1600,
       "ShowedOn": 2,
