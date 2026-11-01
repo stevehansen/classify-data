@@ -1,13 +1,11 @@
 # classify-data
 Helper application to use bulk operations on SQL Server's classify data.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/i75otcm0sefnd87h?svg=true)](https://ci.appveyor.com/project/SteveHansen/classify-data)
+[![CI](https://github.com/stevehansen/classify-data/actions/workflows/ci.yml/badge.svg)](https://github.com/stevehansen/classify-data/actions/workflows/ci.yml)
 
 ## Running the application from source
 
-The application requires Visual Studio 2017 (Community or higher) to open the ClassifyData.sln solution file. If needed the web.config needs to be changed (it currently points to server . aka local using integrated security).
-
-Launching the web project should download all needed NuGet packages and open your default browser.
+The application requires Windows and the .NET 10 SDK. Run it with `dotnet run --project ClassifyData.App` (or start ClassifyData.App from Visual Studio). The connection string is in ClassifyData/appsettings.json (it points to server . aka local using integrated security) and can also be changed from the Configuration screen in the app.
 
 In the menu it should show a list of all available databases (if not you might need to check the connection string):
 

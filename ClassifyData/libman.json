@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "defaultProvider": "jsdelivr",
+  "libraries": [
+    {
+      "library": "@vidyano/vidyano@4.0.1",
+      "destination": "wwwroot/dist",
+      "files": [
+        "index.min.js"
+      ]
+    }
+  ]
+}

@@ -4,7 +4,8 @@
     "Name": "Admin",
     "PasswordHash": "$2a$13$Q7k4k/KQam11IEp45TRLTu/0j.DWOwBnoLNhD2WiomBHqrDUsjDW.",
     "MemberOf": [
-      "Administrators"
+      "Administrators",
+      "Users"
     ],
     "CreationDate": "2018-02-26T21:25:42.1682877+01:00",
     "SettingsObject": {

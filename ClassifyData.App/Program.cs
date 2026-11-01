@@ -1,11 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Web.Http;
+using System;
 using System.Windows.Forms;
 using CefSharp;
 using CefSharp.WinForms;
-using Microsoft.Owin.Hosting;
-using Owin;
+using ClassifyData.Service;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Vidyano.Service;
 
 namespace ClassifyData.App
@@ -15,28 +15,29 @@ namespace ClassifyData.App
         public static readonly string BaseAddress = "http://localhost:9987/";
 
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             // TODO: Show information when application fails to startup
 
-            using (WebApp.Start(BaseAddress, Configuration)) // TODO: Try other ports in case 9000 is in use
+            var builder = WebApplication.CreateBuilder(new WebApplicationOptions
             {
-                var settings = new CefSettings();
-                settings.BrowserSubprocessPath = Path.GetFullPath(@"x86\CefSharp.BrowserSubprocess.exe");
+                Args = args,
+                ContentRootPath = AppContext.BaseDirectory,
+            });
+            builder.WebHost.UseUrls(BaseAddress); // TODO: Try other ports in case 9000 is in use
+            builder.Services.AddVidyanoNoDatabase(builder.Configuration);
+            builder.Services.AddScoped<ClassifyDataEntityModelContainer>();
+            builder.Services.AddTransient<RequestScopeProvider<ClassifyDataEntityModelContainer>>();
 
-                Cef.Initialize(settings);
+            var app = builder.Build();
+            app.UseVidyano(app.Environment, app.Configuration);
+            app.StartAsync().GetAwaiter().GetResult();
 
-                var browser = new AppForm();
-                Application.Run(browser);
-            }
-        }
+            Cef.Initialize(new CefSettings());
 
-        private static void Configuration(IAppBuilder appBuilder)
-        {
-            var config = new HttpConfiguration();
-            config.Routes.MapVidyanoRoute();
+            Application.Run(new AppForm());
 
-            appBuilder.UseWebApi(config);
+            app.StopAsync().GetAwaiter().GetResult();
         }
     }
 }

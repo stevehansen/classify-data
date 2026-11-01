@@ -4,13 +4,22 @@
 		":rebaseStalePrs"
   ],
 	"assigneesFromCodeOwners": true,
+	"customManagers": [
+		{
+			"customType": "regex",
+			"description": "Client libraries restored by libman (jsdelivr = npm)",
+			"managerFilePatterns": ["/(^|/)libman\\.json$/"],
+			"matchStrings": ["\"library\": \"(?<depName>(@[^/\"]+/)?[^@\"]+)@(?<currentValue>[^\"]+)\""],
+			"datasourceTemplate": "npm"
+		}
+	],
 	"packageRules": [
     {
       "matchPackageNames": ["/ThisAssembly/"],
       "groupName": "ThisAssembly"
     },
 		{
-      "matchPackageNames": ["/Vidyano/"],
+      "matchPackageNames": ["/vidyano/i"],
       "groupName": "Vidyano"
     },
 		{

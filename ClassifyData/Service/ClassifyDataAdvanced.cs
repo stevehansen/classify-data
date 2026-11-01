@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Vidyano.Core.Services;
 using Vidyano.Service;
 using Vidyano.Service.Repository;
@@ -24,7 +25,7 @@ namespace ClassifyData.Service
                 {
                     using (var context = new ClassifyDataEntityModelContainer())
                     {
-                        var databases = context.Database.SqlQuery<string>("select name from sys.databases where database_id > 4 and state = 0 order by name");
+                        var databases = context.Database.SqlQueryRaw<string>("select name [Value] from sys.databases where database_id > 4 and state = 0 order by name");
                         foreach (var database in databases)
                             server.AddPersistentObjectItem(database, database, databasePo, database);
                     }

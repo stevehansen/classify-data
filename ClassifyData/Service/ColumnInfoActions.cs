@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using Vidyano.Service.ClientOperations;
 using Vidyano.Service.Repository;
 
@@ -9,6 +10,10 @@ namespace ClassifyData.Service
 {
 	public class ColumnInfoActions : PersistentObjectActionsReference<ClassifyDataEntityModelContainer, ColumnInfo>
 	{
+		public ColumnInfoActions(ClassifyDataEntityModelContainer context) : base(context)
+		{
+		}
+
 		/// <summary>
 		/// Maps to <see cref="ColumnInfo"/>
 		/// </summary>
@@ -110,7 +115,8 @@ else
 		{
 			var database = obj.Parent.ObjectId;
 			var ids = obj.ObjectId.Split(';');
-			return Context.Database.SqlQuery<ColumnInfo>(string.Format(selectFormat, database), ids[0], ids[1], ids[2]).First();
+			// AsEnumerable: EF Core would wrap First() around the batch as a subquery, which fails on its "use [db];"
+			return Context.Database.SqlQueryRaw<ColumnInfo>(string.Format(selectFormat, database), ids[0], ids[1], ids[2]).AsEnumerable().First();
 		}
 
 		public override void OnSave(PersistentObject obj)
@@ -155,13 +161,14 @@ else
 			var sql = $@"use [{obj.Parent.ObjectId}];
 {upsertExtendedProperty}";
 
-			if (Context.Database.Connection.State == ConnectionState.Closed)
-				Context.Database.Connection.Open();
+			var connection = Context.Database.GetDbConnection();
+			if (connection.State == ConnectionState.Closed)
+				connection.Open();
 
 
 		    foreach (var extendedproperty in changedProperties)
 			{
-				using (IDbCommand cmd = Context.Database.Connection.CreateCommand())
+				using (IDbCommand cmd = connection.CreateCommand())
 				{
 					cmd.CommandText = sql;
 					cmd.AddParameterWithValue("@name", extendedproperty.name);
@@ -181,14 +188,14 @@ else
 		public IEnumerable<ColumnInfo> ForDatabase(CustomQueryArgs args)
 		{
 			var database = args.Parent.ObjectId;
-			return Context.Database.SqlQuery<ColumnInfo>(string.Format(infoFormat, database)).ToArray();
+			return Context.Database.SqlQueryRaw<ColumnInfo>(string.Format(infoFormat, database)).ToArray();
 		}
 
 		public static void SetInfo(ClassifyDataEntityModelContainer context, PersistentObject databaseObj)
 		{
-			var tablesInfo = context.Database.SqlQuery<CountTotal>(string.Format(tablesFormat, databaseObj.ObjectId)).First();
+			var tablesInfo = context.Database.SqlQueryRaw<CountTotal>(string.Format(tablesFormat, databaseObj.ObjectId)).AsEnumerable().First();
 			databaseObj["Tables"].SetOriginalValue(string.Format("{0} / {1}", tablesInfo.Count, tablesInfo.Total));
-			var columnInfo = context.Database.SqlQuery<CountTotal>(string.Format(columnsFormat, databaseObj.ObjectId)).First();
+			var columnInfo = context.Database.SqlQueryRaw<CountTotal>(string.Format(columnsFormat, databaseObj.ObjectId)).AsEnumerable().First();
 			databaseObj["Columns"].SetOriginalValue(string.Format("{0} / {1}", columnInfo.Count, columnInfo.Total));
 		}
 
