@@ -373,6 +373,13 @@
       "IsClient": true,
       "IsSystem": true
     },
+    "Finish": {
+      "Value": {
+        "en": "Finish"
+      },
+      "IsClient": true,
+      "IsSystem": true
+    },
     "ForgotPassword": {
       "Value": {
         "en": "Forgot password?"
@@ -415,7 +422,7 @@
     },
     "ImpersonateMessage": {
       "Value": {
-        "en": "Open the following link in a new private browser window"
+        "en": "Open in incognito window"
       },
       "IsSystem": true
     },
@@ -639,6 +646,7 @@
       "Value": {
         "en": "Next"
       },
+      "IsClient": true,
       "IsSystem": true
     },
     "NextMonth": {
@@ -811,6 +819,7 @@
       "Value": {
         "en": "Previous"
       },
+      "IsClient": true,
       "IsSystem": true
     },
     "ReferenceEmptyValue": {
@@ -929,6 +938,12 @@
     "Search_Condition_Or": {
       "Value": {
         "en": "or"
+      },
+      "IsSystem": true
+    },
+    "Selected": {
+      "Value": {
+        "en": "{0} selected"
       },
       "IsSystem": true
     },
@@ -1122,6 +1137,12 @@
         "en": "Unable to load object."
       },
       "IsClient": true,
+      "IsSystem": true
+    },
+    "UnableToSaveModifiedEntity": {
+      "Value": {
+        "en": "{0} ({1}) has been modified by another user. Reload the page and try again."
+      },
       "IsSystem": true
     },
     "UnknownValueForFilter": {

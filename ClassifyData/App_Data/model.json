@@ -21,6 +21,7 @@
       "IconName": "Edit"
     },
     "CancelEdit": {
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Cancel"
@@ -28,6 +29,7 @@
       "IconName": "CancelEdit"
     },
     "CancelSave": {
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Cancel"
@@ -43,10 +45,11 @@
       "DisplayName": {
         "en": "Delete"
       },
-      "IconName": "Delete",
-      "ConfirmationMessageKey": "AskForDeleteItems"
+      "ConfirmationMessageKey": "AskForDeleteItems",
+      "IconName": "Delete"
     },
     "DialogCancel": {
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Cancel"
@@ -54,6 +57,7 @@
       "IconName": "Cancel"
     },
     "DialogOk": {
+      "Intent": 1,
       "IsSystem": true,
       "SelectionRule": "> 0",
       "DisplayName": {
@@ -80,6 +84,7 @@
     "ExportToCsv": {
       "Offset": 30001,
       "ShowedOn": 2,
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Export"
@@ -89,6 +94,7 @@
     "ExportToExcel": {
       "Offset": 30000,
       "ShowedOn": 2,
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Export"
@@ -125,16 +131,18 @@
     "ShowHelp": {
       "Offset": 60000,
       "ShowedOn": 7,
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Help"
       },
-      "IsPinned": true,
+      "Placement": 2,
       "IconName": "Help"
     },
     "viLoadAdvancedSearch": {
       "Offset": 1600,
       "ShowedOn": 2,
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Load"
@@ -153,11 +161,12 @@
     "viSearch": {
       "Offset": 1500,
       "ShowedOn": 2,
+      "Intent": 1,
       "IsSystem": true,
       "DisplayName": {
         "en": "Search"
       },
-      "IsPinned": true,
+      "Placement": 2,
       "IconName": "Filter"
     }
   },
@@ -273,6 +282,13 @@
       "CanSort": false,
       "CanFilter": false,
       "CanListDistincts": false
+    },
+    "Icon": {
+      "$id": "DataType:Icon",
+      "IsSystem": true,
+      "CanSort": true,
+      "CanFilter": true,
+      "CanListDistincts": true
     },
     "Image": {
       "$id": "DataType:Image",
@@ -534,7 +550,6 @@
       "CanListDistincts": true
     }
   },
-  "Rules": {},
   "Schemas": {
     "ClassifyData": {
       "PersistentObjects": {
@@ -950,6 +965,6 @@
     }
   ],
   "Reports": [],
-  "ServiceVersion": "5.48.0+31637c7",
-  "SeederHash": "1+GEBmfp5er49PveM9wuKB+aIqlWijcJyPHrocczvv4="
+  "ServiceVersion": "6.0.20261026.6659+8d8b34e.8d8b34eb5c070aaf14c7587990bf7ebfa6a46db0",
+  "SeederHash": "CxNWnvxpKqZT2PB5Jm9ISZdPs7DNRjgTvKKsnwo3wnM="
 }

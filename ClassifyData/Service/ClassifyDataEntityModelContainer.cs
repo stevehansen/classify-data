@@ -1,24 +1,31 @@
-using System.Configuration;
-using System.Data.Entity;
+using System;
+using System.IO;
+using System.Text.Json.Nodes;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Vidyano.Service;
 using Vidyano.Service.ClientOperations;
 using Vidyano.Service.Repository;
 
 namespace ClassifyData.Service
 {
-    public class ClassifyDataEntityModelContainer : DbContext
+    public class ClassifyDataEntityModelContainer : TargetDbContext
     {
+        private const string connectionStringName = nameof(ClassifyDataEntityModelContainer);
+        private static readonly string appSettingsPath = Path.Combine(AppContext.BaseDirectory, "appsettings.json");
         private static string _connectionString;
 
         static ClassifyDataEntityModelContainer()
         {
-            System.Data.Entity.Database.SetInitializer<ClassifyDataEntityModelContainer>(null);
-
-            ConnectionString = ConfigurationManager.ConnectionStrings["ClassifyDataEntityModelContainer"].ConnectionString;
+            ConnectionString = new ConfigurationBuilder()
+                .AddJsonFile(appSettingsPath)
+                .Build()
+                .GetConnectionString(connectionStringName);
         }
 
-        public ClassifyDataEntityModelContainer()
-            : base(ConnectionString)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(ConnectionString);
         }
 
         public static string ConnectionString
@@ -33,10 +40,9 @@ namespace ClassifyData.Service
 
                     if (newValue)
                     {
-                        var cfg = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                        var connectionStrings = (ConnectionStringsSection)cfg.GetSection("connectionStrings");
-                        connectionStrings.ConnectionStrings["ClassifyDataEntityModelContainer"].ConnectionString = _connectionString;
-                        cfg.Save(ConfigurationSaveMode.Minimal);
+                        var appSettings = JsonNode.Parse(File.ReadAllText(appSettingsPath));
+                        appSettings["ConnectionStrings"][connectionStringName] = _connectionString;
+                        File.WriteAllText(appSettingsPath, appSettings.ToJsonString(new() { WriteIndented = true }));
 
                         Manager.Current.QueueClientOperation(ExecuteMethodOperation.ReloadPage());
                     }

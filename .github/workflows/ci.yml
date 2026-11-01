@@ -13,6 +13,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: microsoft/setup-msbuild@v3
-      - run: msbuild ClassifyData.sln -t:restore -p:RestorePackagesConfig=true -nologo
-      - run: msbuild ClassifyData.sln -p:Configuration=Release -nologo
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: 10.0.x
+      - run: dotnet build ClassifyData.sln -c Release -warnaserror -nologo

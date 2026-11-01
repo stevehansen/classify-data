@@ -4,6 +4,10 @@ namespace ClassifyData.Service
 {
     public class ConfigurationActions : PersistentObjectActionsReference<ClassifyDataEntityModelContainer, object>
     {
+        public ConfigurationActions(ClassifyDataEntityModelContainer context) : base(context)
+        {
+        }
+
         public override void OnLoad(PersistentObject obj, PersistentObject parent)
         {
             obj["ConnectionString"].SetOriginalValue(ClassifyDataEntityModelContainer.ConnectionString);

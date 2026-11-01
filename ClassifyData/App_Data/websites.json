@@ -1,7 +1,7 @@
 {
   "Websites": {
     "Default": {
-      "Type": 2,
+      "Type": 4,
       "Bindings": [
         "*"
       ]

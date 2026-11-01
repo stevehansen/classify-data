@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Restored by libman during build
+ClassifyData/wwwroot/dist/
