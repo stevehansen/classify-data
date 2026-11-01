@@ -1,11 +1,9 @@
 {
   "extends": [
-    "config:base",
+    "github>stevehansen/renovate-config",
 		":rebaseStalePrs"
   ],
-	"labels": ["dependencies"],
 	"assigneesFromCodeOwners": true,
-	"schedule": ["after 9pm and before 7am every weekday", "every weekend"],
 	"packageRules": [
     {
       "matchPackagePatterns": ["ThisAssembly"],
