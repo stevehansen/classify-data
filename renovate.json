@@ -6,15 +6,15 @@
 	"assigneesFromCodeOwners": true,
 	"packageRules": [
     {
-      "matchPackagePatterns": ["ThisAssembly"],
+      "matchPackageNames": ["/ThisAssembly/"],
       "groupName": "ThisAssembly"
     },
 		{
-      "matchPackagePatterns": ["Vidyano"],
+      "matchPackageNames": ["/Vidyano/"],
       "groupName": "Vidyano"
     },
 		{
-      "matchPackagePatterns": ["CefSharp"],
+      "matchPackageNames": ["/CefSharp/"],
       "groupName": "CefSharp"
     }
   ]
