@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: microsoft/setup-msbuild@v3
+      - run: msbuild ClassifyData.sln -t:restore -p:RestorePackagesConfig=true -nologo
+      - run: msbuild ClassifyData.sln -p:Configuration=Release -nologo
